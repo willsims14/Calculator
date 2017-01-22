@@ -1,0 +1,10 @@
+body{
+	width: 100%;
+}
+
+#buttonContainer input{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+
+}
