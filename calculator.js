@@ -7,48 +7,62 @@
   Return the value of the operation.
  */
 
+var num1, num2;
 
-function getAndCheckNums(operationType){
+
+// Add event listener
+document.getElementById("+").addEventListener("click", function(){
+    num1 = parseInt(document.getElementById("num1").value);
+    num2 = parseInt(document.getElementById("num2").value);
+    doMath(num1, num2, add);
+});
+
+// Subtract Event Listener
+document.getElementById("-").addEventListener("click", function(){
+    num1 = parseInt(document.getElementById("num1").value);
+    num2 = parseInt(document.getElementById("num2").value);
+    doMath(num1, num2, subtract);
+});
+
+// Multiply Event Listener
+document.getElementById("*").addEventListener("click", function(){
+    num1 = parseInt(document.getElementById("num1").value);
+    num2 = parseInt(document.getElementById("num2").value);
+    doMath(num1, num2, multiply);
+});
+
+// Divide Event Listener
+document.getElementById("/").addEventListener("click", function(){
+    num1 = parseInt(document.getElementById("num1").value);
+    num2 = parseInt(document.getElementById("num2").value);
+    doMath(num1, num2, divide);
+});
+
+
+
+
+function doMath(num1, num2, operationType){
     var outputDiv = document.getElementById("output");
-
-    var num1 = parseInt(document.getElementById("num1").value);
-    var num2 = parseInt(document.getElementById("num2").value);
-
-    var result = 0;
-
-    switch(operationType){
-        case "add":
-            result = add(num1, num2);
-            break;
-        case "subtract":
-            result = subtract(num1, num2);
-            break;
-        case "multiply":
-            result = multiply(num1, num2);
-            break;
-        case "divide":
-            result = divide(num1, num2);
-            break;
-    }
-
-    console.log("Type: ", result);
+    var result = operationType(num1, num2);
     outputDiv.innerHTML = result;
 }
 
- function multiply(number1, number2){
-    return (number1 * number2);
- }
 
-  function add(number1, number2){
+
+function add(number1, number2){
     return (number1 + number2);
- }
+}
 
-  function subtract(number1, number2){
+function subtract(number1, number2){
     return (number1 - number2);
- }
+}
 
- function divide(number1, number2){
+function multiply(number1, number2){
+    return (number1 * number2);
+}
+
+function divide(number1, number2){
     return (number1 / number2);
- }
+}
 
 
